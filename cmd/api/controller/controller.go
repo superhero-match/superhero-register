@@ -23,7 +23,7 @@ func NewController(cfg *config.Config) (ctrl *Controller, err error) {
 	}, nil
 }
 
-// RegisterRoutes registers all the superheroville_municipality API routes.
+// RegisterRoutes registers all the superhero register API routes.
 func (ctl *Controller) RegisterRoutes() *gin.Engine {
 	router := gin.Default()
 

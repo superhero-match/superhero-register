@@ -20,4 +20,5 @@ type Superhero struct {
 	City                  string  `json:"city"`
 	SuperPower            string  `json:"superpower"`
 	AccountType           string  `json:"accountType"`
+	FirebaseToken         string  `json:"firebaseToken"`
 }
