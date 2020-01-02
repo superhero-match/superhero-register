@@ -51,6 +51,7 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 			City:                  s.City,
 			SuperPower:            s.SuperPower,
 			AccountType:           s.AccountType,
+			FirebaseToken:         s.FirebaseToken,
 			IsDeleted:             false,
 			DeletedAt:             string(""),
 			IsBlocked:             false,
@@ -59,9 +60,8 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 			CreatedAt:             t.Format(timeFormat),
 		},
 	)
+	time.Now().UTC()
 	if err != nil {
-		fmt.Println("StoreSuperhero")
-		fmt.Println(err)
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":     http.StatusInternalServerError,
 			"registered": false,

@@ -20,6 +20,7 @@ type Superhero struct {
 	City                  string  `json:"city"`
 	SuperPower            string  `json:"superpower"`
 	AccountType           string  `json:"accountType"`
+	FirebaseToken         string  `json:"firebaseToken"`
 	IsDeleted             bool    `json:"isDeleted"`
 	DeletedAt             string  `json:"deletedAt"`
 	IsBlocked             bool    `json:"isBlocked"`
