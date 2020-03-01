@@ -5,7 +5,7 @@ app:
   time_format: '2019-09-15T14:04:05'
 
 producer:
-  brokers: ['192.168.178.17:9092']
+  brokers: ['localhost:9092']
   topic: 'store.municipality.superhero'
   batch_size: 1
   batch_timeout: 10
