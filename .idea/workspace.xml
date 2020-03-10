@@ -3,17 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e71bb233-31c5-48f3-b6b5-04cb59cf52a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/register.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/superhero.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/producer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/producer/close.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/producer/close.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/producer/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/producer/model/superhero.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/producer/producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/producer/producer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/producer/store.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/producer/store.go" afterDir="false" />
     </list>
@@ -46,7 +39,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
