@@ -20,8 +20,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	ctlmodel "github.com/superhero-register/cmd/api/model"
-	"github.com/superhero-register/internal/producer/model"
+	ctlmodel "github.com/superhero-match/superhero-register/cmd/api/model"
+	"github.com/superhero-match/superhero-register/internal/producer/model"
 )
 
 // RegisterSuperhero registers new Superhero.

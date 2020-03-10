@@ -20,7 +20,7 @@ import (
 
 	"github.com/segmentio/kafka-go"
 
-	"github.com/superhero-register/internal/producer/model"
+	"github.com/superhero-match/superhero-register/internal/producer/model"
 )
 
 // StoreSuperhero publishes new Superhero on Kafka topic for it to be

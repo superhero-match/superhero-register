@@ -14,8 +14,8 @@
 package main
 
 import (
-	"github.com/superhero-register/cmd/api/controller"
-	"github.com/superhero-register/internal/config"
+	"github.com/superhero-match/superhero-register/cmd/api/controller"
+	"github.com/superhero-match/superhero-register/internal/config"
 )
 
 func main() {
