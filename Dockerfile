@@ -62,7 +62,7 @@ USER appuser
 EXPOSE 3000 3000
 
 # Expose port 8220.
-EXPOSE 8210 8220
+EXPOSE 8220 8220
 
 # Command to run the executables.
 CMD ["sh", "-c", "( ./health & ) && ./main"]
