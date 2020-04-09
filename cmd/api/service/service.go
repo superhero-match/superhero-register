@@ -11,45 +11,34 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package controller
+package service
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/superhero-match/superhero-register/cmd/api/service"
+	"github.com/superhero-match/superhero-register/internal/producer"
+	"go.uber.org/zap"
 
 	"github.com/superhero-match/superhero-register/internal/config"
 )
 
-const (
-	timeFormat = "2006-01-02T15:04:05"
-)
-
-// Controller holds the controller data.
-type Controller struct {
-	Service *service.Service
+// Service holds all the different services that are used when handling request.
+type Service struct {
+	Producer   *producer.Producer
+	Logger     *zap.Logger
+	TimeFormat string
 }
 
-// NewController returns new controller.
-func NewController(cfg *config.Config) (ctrl *Controller, err error) {
-	srv, err := service.NewService(cfg)
+// NewService creates value of type Service.
+func NewService(cfg *config.Config) (*Service, error) {
+	logger, err := zap.NewProduction()
 	if err != nil {
 		return nil, err
 	}
 
-	return &Controller{
-		Service: srv,
+	defer logger.Sync()
+
+	return &Service{
+		Producer:   producer.NewProducer(cfg),
+		Logger:     logger,
+		TimeFormat: cfg.App.TimeFormat,
 	}, nil
-}
-
-// RegisterRoutes registers all the superhero register API routes.
-func (ctl *Controller) RegisterRoutes() *gin.Engine {
-	router := gin.Default()
-
-	sr := router.Group("/api/v1/superhero_register")
-
-	// sr.Use(c.Authorize)
-
-	sr.POST("/register", ctl.RegisterSuperhero)
-
-	return router
 }

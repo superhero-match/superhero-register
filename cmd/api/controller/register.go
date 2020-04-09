@@ -43,7 +43,7 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 	t := time.Now().UTC()
 
 	// Publish superhero on Kafka topic to be stored in DB and Elasticsearch.
-	err = ctl.Producer.StoreSuperhero(
+	err = ctl.Service.Producer.StoreSuperhero(
 		model.Superhero{
 			ID:                    s.ID,
 			Email:                 s.Email,

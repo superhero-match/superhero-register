@@ -1,11 +1,5 @@
 prepare:
-	go get -u github.com/golang/dep/cmd/dep
-	go get -u github.com/gin-gonic/gin
-	go get -u golang.org/x/sys/unix
-	go get -u github.com/jinzhu/configor
-	go get -u go.uber.org/zap
-	go get -u github.com/segmentio/kafka-go
-	go get -u golang.org/x/net/context
+	go mod download
 
 run:
 	go build -o bin/main cmd/api/main.go
@@ -15,17 +9,11 @@ build:
 	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o bin/main cmd/api/main.go
 	chmod +x bin/main
 
-init:
-	dep init
-
-deps:
-	dep ensure -v
-
 dkb:
 	docker build -t superhero-register .
 
 dkr:
-	docker run --rm -p "3000:3000" superhero-register
+	docker run --rm -p "3000:3000" -p "8220:8220" superhero-register
 
 launch: dkb dkr
 

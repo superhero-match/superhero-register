@@ -13,24 +13,9 @@
 */
 package config
 
-import (
-	"github.com/jinzhu/configor"
-)
-
-// Config holds the configuration.
-type Config struct {
-	App      *App
-	Producer *Producer
-	Health   *Health
-}
-
-// NewConfig returns the configuration.
-func NewConfig() (cnf *Config, e error) {
-	var cfg Config
-
-	if err := configor.Load(&cfg, "config.yml"); err != nil {
-		return nil, err
-	}
-
-	return &cfg, nil
+// Health holds configuration for health server.
+type Health struct {
+	Port             string `env:"HEALTH_SERVER_PORT" default:":8220"`
+	ShutdownEndpoint string `env:"HEALTH_SERVER_SHUTDOWN_ENDPOINT" default:"/api/v1/superhero_register_health/shutdown"`
+	ContentType      string `env:"HEALTH_SERVER_CONTENT_TYPE" default:"application/json"`
 }

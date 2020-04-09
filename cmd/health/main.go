@@ -11,45 +11,28 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package controller
+package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/superhero-match/superhero-register/cmd/api/service"
-
+	"github.com/superhero-match/superhero-register/cmd/health/controller"
 	"github.com/superhero-match/superhero-register/internal/config"
 )
 
-const (
-	timeFormat = "2006-01-02T15:04:05"
-)
-
-// Controller holds the controller data.
-type Controller struct {
-	Service *service.Service
-}
-
-// NewController returns new controller.
-func NewController(cfg *config.Config) (ctrl *Controller, err error) {
-	srv, err := service.NewService(cfg)
+func main() {
+	cfg, err := config.NewConfig()
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
-	return &Controller{
-		Service: srv,
-	}, nil
-}
+	ctrl, err := controller.NewController()
+	if err != nil {
+		panic(err)
+	}
 
-// RegisterRoutes registers all the superhero register API routes.
-func (ctl *Controller) RegisterRoutes() *gin.Engine {
-	router := gin.Default()
+	r := ctrl.RegisterRoutes()
 
-	sr := router.Group("/api/v1/superhero_register")
-
-	// sr.Use(c.Authorize)
-
-	sr.POST("/register", ctl.RegisterSuperhero)
-
-	return router
+	err = r.Run(cfg.Health.Port)
+	if err != nil {
+		panic(err)
+	}
 }

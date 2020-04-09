@@ -15,41 +15,26 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/superhero-match/superhero-register/cmd/api/service"
-
-	"github.com/superhero-match/superhero-register/internal/config"
 )
 
-const (
-	timeFormat = "2006-01-02T15:04:05"
-)
-
-// Controller holds the controller data.
+// Controller holds the Controller data.
 type Controller struct {
-	Service *service.Service
 }
 
 // NewController returns new controller.
-func NewController(cfg *config.Config) (ctrl *Controller, err error) {
-	srv, err := service.NewService(cfg)
-	if err != nil {
-		return nil, err
-	}
-
-	return &Controller{
-		Service: srv,
-	}, nil
+func NewController() (*Controller, error) {
+	return &Controller{}, nil
 }
 
-// RegisterRoutes registers all the superhero register API routes.
+// RegisterRoutes registers all the superhero_suggestions API routes.
 func (ctl *Controller) RegisterRoutes() *gin.Engine {
 	router := gin.Default()
 
-	sr := router.Group("/api/v1/superhero_register")
+	sr := router.Group("/api/v1/superhero_register_health")
 
-	// sr.Use(c.Authorize)
-
-	sr.POST("/register", ctl.RegisterSuperhero)
+	// Routes.
+	sr.POST("/health", ctl.Health)
+	sr.POST("/shutdown", ctl.Shutdown)
 
 	return router
 }
