@@ -2,10 +2,10 @@ app:
   port: ':3000'
   cert_file: './cmd/api/certificate.pem'
   key_file: './cmd/api/key.pem'
-  time_format: '2019-09-15T14:04:05'
+  time_format: '2006-01-02T15:04:05'
 
 producer:
-  brokers: ['192.168.0.105:9092']
+  brokers: ['192.168.0.64:9092']
   topic: 'store.municipality.superhero'
   batch_size: 1
   batch_timeout: 10
