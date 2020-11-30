@@ -11,28 +11,36 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package config
+package cache
 
 import (
-	"github.com/jinzhu/configor"
+	"fmt"
+	"github.com/go-redis/redis"
+	"github.com/superhero-match/superhero-register/internal/config"
 )
 
-// Config holds the configuration.
-type Config struct {
-	App      *App
-	Producer *Producer
-	Health   *Health
-	JWT      *JWT
-	Cache    *Cache
+// Cache is the Redis client.
+type Cache struct {
+	Redis *redis.Client
 }
 
-// NewConfig returns the configuration.
-func NewConfig() (cnf *Config, e error) {
-	var cfg Config
+// NewCache creates a client connection to Redis.
+func NewCache(cfg *config.Config) (cache *Cache, err error) {
+	client := redis.NewClient(&redis.Options{
+		Addr:         fmt.Sprintf("%s%s", cfg.Cache.Address, cfg.Cache.Port),
+		Password:     cfg.Cache.Password,
+		DB:           cfg.Cache.DB,
+		PoolSize:     cfg.Cache.PoolSize,
+		MinIdleConns: cfg.Cache.MinimumIdleConnections,
+		MaxRetries:   cfg.Cache.MaximumRetries,
+	})
 
-	if err := configor.Load(&cfg, "config.yml"); err != nil {
+	_, err = client.Ping().Result()
+	if err != nil {
 		return nil, err
 	}
 
-	return &cfg, nil
+	return &Cache{
+		Redis: client,
+	}, nil
 }

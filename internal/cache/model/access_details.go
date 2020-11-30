@@ -11,28 +11,9 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package config
+package model
 
-import (
-	"github.com/jinzhu/configor"
-)
-
-// Config holds the configuration.
-type Config struct {
-	App      *App
-	Producer *Producer
-	Health   *Health
-	JWT      *JWT
-	Cache    *Cache
-}
-
-// NewConfig returns the configuration.
-func NewConfig() (cnf *Config, e error) {
-	var cfg Config
-
-	if err := configor.Load(&cfg, "config.yml"); err != nil {
-		return nil, err
-	}
-
-	return &cfg, nil
+type AccessDetails struct {
+	AccessUuid string
+	UserID     string
 }

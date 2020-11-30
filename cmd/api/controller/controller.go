@@ -47,9 +47,7 @@ func (ctl *Controller) RegisterRoutes() *gin.Engine {
 
 	sr := router.Group("/api/v1/superhero_register")
 
-	// sr.Use(c.Authorize)
-
-	sr.POST("/register", ctl.RegisterSuperhero)
+	sr.POST("/register", ctl.TokenAuthMiddleware(), ctl.RegisterSuperhero)
 
 	return router
 }

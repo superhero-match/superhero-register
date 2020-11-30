@@ -11,28 +11,17 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package config
+package cache
 
 import (
-	"github.com/jinzhu/configor"
+	"github.com/superhero-match/superhero-register/internal/cache/model"
 )
 
-// Config holds the configuration.
-type Config struct {
-	App      *App
-	Producer *Producer
-	Health   *Health
-	JWT      *JWT
-	Cache    *Cache
-}
-
-// NewConfig returns the configuration.
-func NewConfig() (cnf *Config, e error) {
-	var cfg Config
-
-	if err := configor.Load(&cfg, "config.yml"); err != nil {
-		return nil, err
+func (c *Cache) FetchAuth(authD *model.AccessDetails) (string, error) {
+	userID, err := c.Redis.Get(authD.AccessUuid).Result()
+	if err != nil {
+		return "", err
 	}
 
-	return &cfg, nil
+	return userID, nil
 }

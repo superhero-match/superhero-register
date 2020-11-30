@@ -14,3 +14,15 @@ health:
   port: ':8220'
   shutdown_endpoint: '/api/v1/superhero_register_health/shutdown'
   content_type: 'application/json'
+
+jwt:
+  access_token_secret: 'access_token_secret'
+
+cache:
+  address: '192.168.0.64'
+  port: ':6379'
+  password: 'Awesome85**'
+  db: 0
+  pool_size: 25
+  minimum_idle_connections: 10
+  maximum_retries: 1
