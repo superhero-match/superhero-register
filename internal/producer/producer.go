@@ -14,6 +14,7 @@
 package producer
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/segmentio/kafka-go"
@@ -28,6 +29,7 @@ type Producer struct {
 
 // NewProducer configures Kafka producer that produces to configured topic.
 func NewProducer(cfg *config.Config) *Producer {
+	fmt.Println("cfg.Producer.Brokers -> ", cfg.Producer.Brokers)
 	w := kafka.NewWriter(kafka.WriterConfig{
 		Brokers:      cfg.Producer.Brokers,
 		Topic:        cfg.Producer.Topic,
