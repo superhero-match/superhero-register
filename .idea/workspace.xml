@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e71bb233-31c5-48f3-b6b5-04cb59cf52a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/register.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -48,6 +48,11 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 		return
 	}
 
+	fmt.Println()
+	fmt.Printf("%+v", s)
+	fmt.Println()
+
+	fmt.Println("before s.Age < minimumRegistrationAge")
 	if s.Age < minimumRegistrationAge {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":     http.StatusInternalServerError,
@@ -56,7 +61,9 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 
 		return
 	}
+	fmt.Println("after s.Age < minimumRegistrationAge")
 
+	fmt.Println("before time.Parse(timeFormatShort, s.Birthday)")
 	now := time.Now()
 	then, err := time.Parse(timeFormatShort, s.Birthday)
 	if err != nil {
@@ -67,11 +74,13 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 
 		return
 	}
+	fmt.Println("before time.Parse(timeFormatShort, s.Birthday)")
 
 	diff := now.Sub(then)
 	days := int(diff.Hours() / hoursInADay)
 	years := int(days / daysInAYear)
 
+	fmt.Println("before if years < minimumRegistrationAge")
 	if years < minimumRegistrationAge {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":     http.StatusInternalServerError,
@@ -80,6 +89,7 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 
 		return
 	}
+	fmt.Println("after if years < minimumRegistrationAge")
 
 	t := time.Now().UTC()
 
@@ -116,6 +126,8 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 	)
 	time.Now().UTC()
 	if err != nil {
+		fmt.Println("err -> ctl.Service.Producer.StoreSuperhero")
+		fmt.Println(err)
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":     http.StatusInternalServerError,
 			"registered": false,
