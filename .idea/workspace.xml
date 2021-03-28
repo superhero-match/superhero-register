@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e71bb233-31c5-48f3-b6b5-04cb59cf52a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/register.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../superhero-screen" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,31 +101,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1606481278818">
-      <screen x="72" y="27" width="1294" height="741" />
-    </state>
-    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1606481278818" />
-    <state width="1248" height="278" key="GridCell.Tab.0.bottom" timestamp="1606740899582">
-      <screen x="72" y="27" width="1294" height="741" />
-    </state>
-    <state width="1323" height="286" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603441354232" />
-    <state width="1248" height="278" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1606740899582" />
-    <state width="1248" height="278" key="GridCell.Tab.0.center" timestamp="1606740899581">
-      <screen x="72" y="27" width="1294" height="741" />
-    </state>
-    <state width="1323" height="286" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603441354231" />
-    <state width="1248" height="278" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1606740899581" />
-    <state width="1248" height="278" key="GridCell.Tab.0.left" timestamp="1606740899580">
-      <screen x="72" y="27" width="1294" height="741" />
-    </state>
-    <state width="1323" height="286" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603441354231" />
-    <state width="1248" height="278" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1606740899580" />
-    <state width="1248" height="278" key="GridCell.Tab.0.right" timestamp="1606740899582">
-      <screen x="72" y="27" width="1294" height="741" />
-    </state>
-    <state width="1323" height="286" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603441354231" />
-    <state width="1248" height="278" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1606740899582" />
   </component>
 </project>

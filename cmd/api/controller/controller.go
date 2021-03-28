@@ -20,10 +20,6 @@ import (
 	"github.com/superhero-match/superhero-register/internal/config"
 )
 
-const (
-	timeFormat = "2006-01-02T15:04:05"
-)
-
 // Controller holds the controller data.
 type Controller struct {
 	Service *service.Service
@@ -47,7 +43,7 @@ func (ctl *Controller) RegisterRoutes() *gin.Engine {
 
 	sr := router.Group("/api/v1/superhero_register")
 
-	sr.POST("/register", ctl.TokenAuthMiddleware(), ctl.RegisterSuperhero)
+	sr.POST("/register", ctl.RegisterSuperhero)
 
 	return router
 }

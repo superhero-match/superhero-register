@@ -24,6 +24,14 @@ import (
 	"github.com/superhero-match/superhero-register/internal/producer/model"
 )
 
+const (
+	minimumRegistrationAge int = 18
+	timeFormat string = "2006-01-02T15:04:05"
+	timeFormatShort string = "2006-01-02"
+	daysInAYear int = 365
+	hoursInADay float64 = 24
+)
+
 // RegisterSuperhero registers new Superhero.
 func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 	var s ctlmodel.Superhero
@@ -32,6 +40,39 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 	if err != nil {
 		fmt.Println("BindJSON")
 		fmt.Println(err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"status":     http.StatusInternalServerError,
+			"registered": false,
+		})
+
+		return
+	}
+
+	if s.Age < minimumRegistrationAge {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"status":     http.StatusInternalServerError,
+			"registered": false,
+		})
+
+		return
+	}
+
+	now := time.Now()
+	then, err := time.Parse(timeFormatShort, s.Birthday)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"status":     http.StatusInternalServerError,
+			"registered": false,
+		})
+
+		return
+	}
+
+	diff := now.Sub(then)
+	days := int(diff.Hours() / hoursInADay)
+	years := int(days / daysInAYear)
+
+	if years < minimumRegistrationAge {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":     http.StatusInternalServerError,
 			"registered": false,
