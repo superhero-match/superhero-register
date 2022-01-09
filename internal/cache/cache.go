@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -15,17 +15,25 @@ package cache
 
 import (
 	"fmt"
+
 	"github.com/go-redis/redis"
+
+	"github.com/superhero-match/superhero-register/internal/cache/model"
 	"github.com/superhero-match/superhero-register/internal/config"
 )
 
-// Cache is the Redis client.
-type Cache struct {
+// Cache defines cache methods.
+type Cache interface {
+	FetchAuth(authD *model.AccessDetails) (string, error)
+}
+
+// cache is the Redis client.
+type cache struct {
 	Redis *redis.Client
 }
 
 // NewCache creates a client connection to Redis.
-func NewCache(cfg *config.Config) (cache *Cache, err error) {
+func NewCache(cfg *config.Config) (c Cache, err error) {
 	client := redis.NewClient(&redis.Options{
 		Addr:         fmt.Sprintf("%s%s", cfg.Cache.Address, cfg.Cache.Port),
 		Password:     cfg.Cache.Password,
@@ -40,7 +48,7 @@ func NewCache(cfg *config.Config) (cache *Cache, err error) {
 		return nil, err
 	}
 
-	return &Cache{
+	return &cache{
 		Redis: client,
 	}, nil
 }

@@ -1,25 +1,18 @@
 app:
   port: ':3000'
-  cert_file: './cmd/api/certificate.pem'
-  key_file: './cmd/api/key.pem'
   time_format: '2006-01-02T15:04:05'
 
 producer:
-  brokers: ['192.168.0.64:9092']
+  brokers: '192.168.1.229:9092'
   topic: 'store.municipality.superhero'
   batch_size: 1
   batch_timeout: 10
-
-health:
-  port: ':8220'
-  shutdown_endpoint: '/api/v1/superhero_register_health/shutdown'
-  content_type: 'application/json'
 
 jwt:
   access_token_secret: 'access_token_secret'
 
 cache:
-  address: '192.168.0.64'
+  address: '192.168.1.229'
   port: ':6379'
   password: 'Awesome85**'
   db: 0

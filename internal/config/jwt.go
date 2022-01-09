@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -15,5 +15,5 @@ package config
 
 // JWT holds all the configuration settings for the JWT.
 type JWT struct {
-	AccessTokenSecret  string `env:"SUPERHERO_REGISTER_JWT_ACCESS_TOKEN_SECRET" yaml:"access_token_secret" default:"access_token_secret"`
+	AccessTokenSecret string `env:"SUPERHERO_REGISTER_JWT_ACCESS_TOKEN_SECRET" yaml:"access_token_secret" default:"access_token_secret"`
 }

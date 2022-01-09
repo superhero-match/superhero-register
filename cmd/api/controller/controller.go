@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -15,14 +15,17 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/superhero-match/superhero-register/cmd/api/service"
+	"go.uber.org/zap"
 
+	"github.com/superhero-match/superhero-register/cmd/api/service"
 	"github.com/superhero-match/superhero-register/internal/config"
 )
 
 // Controller holds the controller data.
 type Controller struct {
-	Service *service.Service
+	Service    service.Service
+	Logger     *zap.Logger
+	TimeFormat string
 }
 
 // NewController returns new controller.
@@ -32,8 +35,17 @@ func NewController(cfg *config.Config) (ctrl *Controller, err error) {
 		return nil, err
 	}
 
+	logger, err := zap.NewProduction()
+	if err != nil {
+		return nil, err
+	}
+
+	defer logger.Sync()
+
 	return &Controller{
-		Service: srv,
+		Service:    srv,
+		Logger:     logger,
+		TimeFormat: cfg.App.TimeFormat,
 	}, nil
 }
 
@@ -44,6 +56,7 @@ func (ctl *Controller) RegisterRoutes() *gin.Engine {
 	sr := router.Group("/api/v1/superhero_register")
 
 	sr.POST("/register", ctl.RegisterSuperhero)
+	sr.GET("/health", ctl.Health)
 
 	return router
 }

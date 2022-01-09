@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -14,9 +14,11 @@
 package controller
 
 import (
-	"github.com/gin-gonic/gin"
-	cm "github.com/superhero-match/superhero-register/internal/cache/model"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+
+	cm "github.com/superhero-match/superhero-register/internal/cache/model"
 )
 
 func (ctrl *Controller) TokenAuthMiddleware() gin.HandlerFunc {

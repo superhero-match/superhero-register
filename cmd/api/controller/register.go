@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -14,22 +14,22 @@
 package controller
 
 import (
-	"fmt"
 	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 
 	ctlmodel "github.com/superhero-match/superhero-register/cmd/api/model"
 	"github.com/superhero-match/superhero-register/internal/producer/model"
 )
 
 const (
-	minimumRegistrationAge int = 18
-	timeFormat string = "2006-01-02T15:04:05"
-	timeFormatShort string = "2006-01-02"
-	daysInAYear int = 365
-	hoursInADay float64 = 24
+	minimumRegistrationAge int     = 18
+	timeFormat             string  = "2006-01-02T15:04:05"
+	timeFormatShort        string  = "2006-01-02"
+	daysInAYear            int     = 365
+	hoursInADay            float64 = 24
 )
 
 // RegisterSuperhero registers new Superhero.
@@ -37,22 +37,16 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 	var s ctlmodel.Superhero
 
 	err := c.BindJSON(&s)
-	if err != nil {
-		fmt.Println("BindJSON")
-		fmt.Println(err)
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"status":     http.StatusInternalServerError,
-			"registered": false,
-		})
+	if checkError(err, c) {
+		ctl.Logger.Error(
+			"failed to bind request model",
+			zap.String("err", err.Error()),
+			zap.String("time", time.Now().UTC().Format(ctl.TimeFormat)),
+		)
 
 		return
 	}
 
-	fmt.Println()
-	fmt.Printf("%+v", s)
-	fmt.Println()
-
-	fmt.Println("before s.Age < minimumRegistrationAge")
 	if s.Age < minimumRegistrationAge {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":     http.StatusInternalServerError,
@@ -61,9 +55,7 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 
 		return
 	}
-	fmt.Println("after s.Age < minimumRegistrationAge")
 
-	fmt.Println("before time.Parse(timeFormatShort, s.Birthday)")
 	now := time.Now()
 	then, err := time.Parse(timeFormatShort, s.Birthday)
 	if err != nil {
@@ -74,13 +66,11 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 
 		return
 	}
-	fmt.Println("before time.Parse(timeFormatShort, s.Birthday)")
 
 	diff := now.Sub(then)
 	days := int(diff.Hours() / hoursInADay)
 	years := int(days / daysInAYear)
 
-	fmt.Println("before if years < minimumRegistrationAge")
 	if years < minimumRegistrationAge {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"status":     http.StatusInternalServerError,
@@ -89,12 +79,11 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 
 		return
 	}
-	fmt.Println("after if years < minimumRegistrationAge")
 
 	t := time.Now().UTC()
 
 	// Publish superhero on Kafka topic to be stored in DB and Elasticsearch.
-	err = ctl.Service.Producer.StoreSuperhero(
+	err = ctl.Service.StoreSuperhero(
 		model.Superhero{
 			ID:                    s.ID,
 			Email:                 s.Email,
@@ -125,13 +114,12 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 		},
 	)
 	time.Now().UTC()
-	if err != nil {
-		fmt.Println("err -> ctl.Service.Producer.StoreSuperhero")
-		fmt.Println(err)
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"status":     http.StatusInternalServerError,
-			"registered": false,
-		})
+	if checkError(err, c) {
+		ctl.Logger.Error(
+			"failed to store superhero",
+			zap.String("err", err.Error()),
+			zap.String("time", time.Now().UTC().Format(ctl.TimeFormat)),
+		)
 
 		return
 	}
@@ -140,4 +128,17 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 		"status":     http.StatusOK,
 		"registered": true,
 	})
+}
+
+func checkError(err error, c *gin.Context) bool {
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"status":     http.StatusInternalServerError,
+			"registered": false,
+		})
+
+		return true
+	}
+
+	return false
 }

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -14,31 +14,36 @@
 package producer
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/segmentio/kafka-go"
 
 	"github.com/superhero-match/superhero-register/internal/config"
+	"github.com/superhero-match/superhero-register/internal/producer/model"
 )
 
-// Producer holds Kafka producer related data.
-type Producer struct {
+// Producer interface defines producer methods.
+type Producer interface {
+	Close() error
+	StoreSuperhero(s model.Superhero) error
+}
+
+// producer holds Kafka producer related data.
+type producer struct {
 	Producer *kafka.Writer
 }
 
 // NewProducer configures Kafka producer that produces to configured topic.
-func NewProducer(cfg *config.Config) *Producer {
-	fmt.Println("cfg.Producer.Brokers -> ", cfg.Producer.Brokers)
-	w := kafka.NewWriter(kafka.WriterConfig{
-		Brokers:      cfg.Producer.Brokers,
+func NewProducer(cfg *config.Config) Producer {
+	w := &kafka.Writer{
+		Addr:         kafka.TCP(cfg.Producer.Brokers),
 		Topic:        cfg.Producer.Topic,
 		BatchSize:    cfg.Producer.BatchSize,
 		BatchTimeout: time.Duration(cfg.Producer.BatchTimeout) * time.Millisecond,
 		Balancer:     &kafka.LeastBytes{},
-	})
+	}
 
-	return &Producer{
+	return &producer{
 		Producer: w,
 	}
 }

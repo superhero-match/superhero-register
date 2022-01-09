@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -11,19 +11,15 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-package health
+package controller
 
 import (
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-// ShutdownHealthServer sends shutdown signal to health server. This shutdown signal is sent only when API server
-// is panicking and is about to be shutdown to notify loadbalancer that API is un-healthy.
-func (c *Client) ShutdownHealthServer () error {
-	_, err := http.Post(c.HealthServerURL, c.ContentType, nil)
-	if err != nil {
-		return err
-	}
-
-	return nil
+// Health is used for health checks from loadbalancer.
+func (ctl *Controller) Health(c *gin.Context) {
+	c.Status(http.StatusOK)
 }

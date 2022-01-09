@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2019 - 2021 MWSOFT
+  Copyright (C) 2019 - 2022 MWSOFT
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
@@ -15,13 +15,15 @@ package service
 
 import (
 	"fmt"
-	"github.com/dgrijalva/jwt-go"
-	"github.com/superhero-match/superhero-register/internal/cache/model"
 	"net/http"
 	"strings"
+
+	jwt "github.com/dgrijalva/jwt-go"
+
+	"github.com/superhero-match/superhero-register/internal/cache/model"
 )
 
-func (srv *Service)  ExtractToken(r *http.Request) string {
+func (srv *service) ExtractToken(r *http.Request) string {
 	bearToken := r.Header.Get("Authorization")
 
 	strArr := strings.Split(bearToken, " ")
@@ -33,7 +35,7 @@ func (srv *Service)  ExtractToken(r *http.Request) string {
 	return ""
 }
 
-func (srv *Service)  VerifyToken(r *http.Request) (*jwt.Token, error) {
+func (srv *service) VerifyToken(r *http.Request) (*jwt.Token, error) {
 	tokenString := srv.ExtractToken(r)
 
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
@@ -50,7 +52,7 @@ func (srv *Service)  VerifyToken(r *http.Request) (*jwt.Token, error) {
 	return token, nil
 }
 
-func (srv *Service)  ExtractTokenMetadata(r *http.Request) (*model.AccessDetails, error) {
+func (srv *service) ExtractTokenMetadata(r *http.Request) (*model.AccessDetails, error) {
 	token, err := srv.VerifyToken(r)
 	if err != nil {
 		return nil, err
@@ -70,7 +72,7 @@ func (srv *Service)  ExtractTokenMetadata(r *http.Request) (*model.AccessDetails
 
 		return &model.AccessDetails{
 			AccessUuid: accessUuid,
-			UserID:   userId,
+			UserID:     userId,
 		}, nil
 	}
 
