@@ -11,9 +11,12 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package config
 
 import (
+	"os"
+
 	"github.com/jinzhu/configor"
 )
 
@@ -21,15 +24,19 @@ import (
 type Config struct {
 	App      *App
 	Producer *Producer
-	JWT      *JWT
-	Cache    *Cache
 }
 
-// NewConfig returns the configuration.
-func NewConfig() (cnf *Config, e error) {
+// New returns the configuration.
+func New() (cnf *Config, e error) {
+	configFile := "config.yml"
+
+	if len(os.Getenv("TEST_CONFIG")) > 0 {
+		configFile = os.Getenv("TEST_CONFIG")
+	}
+
 	var cfg Config
 
-	if err := configor.Load(&cfg, "config.yml"); err != nil {
+	if err := configor.Load(&cfg, configFile); err != nil {
 		return nil, err
 	}
 

@@ -11,6 +11,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package producer
 
 import (
@@ -30,11 +31,12 @@ type Producer interface {
 
 // producer holds Kafka producer related data.
 type producer struct {
-	Producer *kafka.Writer
+	Producer          *kafka.Writer
+	registerSuperhero func(producer *kafka.Writer, s model.Superhero) error
 }
 
-// NewProducer configures Kafka producer that produces to configured topic.
-func NewProducer(cfg *config.Config) Producer {
+// New configures Kafka producer that produces to configured topic.
+func New(cfg *config.Config) Producer {
 	w := &kafka.Writer{
 		Addr:         kafka.TCP(cfg.Producer.Brokers),
 		Topic:        cfg.Producer.Topic,
@@ -44,6 +46,7 @@ func NewProducer(cfg *config.Config) Producer {
 	}
 
 	return &producer{
-		Producer: w,
+		Producer:          w,
+		registerSuperhero: publishRegisterSuperhero,
 	}
 }

@@ -11,6 +11,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package controller
 
 import (
@@ -106,14 +107,14 @@ func (ctl *Controller) RegisterSuperhero(c *gin.Context) {
 			AccountType:           s.AccountType,
 			FirebaseToken:         s.FirebaseToken,
 			IsDeleted:             false,
-			DeletedAt:             string(""),
+			DeletedAt:             "",
 			IsBlocked:             false,
-			BlockedAt:             string(""),
+			BlockedAt:             "",
 			UpdatedAt:             t.Format(timeFormat),
 			CreatedAt:             t.Format(timeFormat),
 		},
 	)
-	time.Now().UTC()
+
 	if checkError(err, c) {
 		ctl.Logger.Error(
 			"failed to store superhero",

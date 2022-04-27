@@ -1,5 +1,6 @@
 prepare:
 	go mod download
+	go mod tidy
 
 run:
 	go build -o bin/main cmd/api/main.go
@@ -9,11 +10,15 @@ build:
 	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o bin/main cmd/api/main.go
 	chmod +x bin/main
 
+tests:
+	go test ./... -v -coverpkg=./... -coverprofile=profile.cov ./...
+	go tool cover -func profile.cov
+
 dkb:
 	docker build -t superhero-register .
 
 dkr:
-	docker run --rm -p "3000:3000" -p "8220:8220" superhero-register
+	docker run --rm -p "3000:3000" superhero-register
 
 launch: dkb dkr
 
@@ -31,7 +36,4 @@ clear: rmc rmi
 api-ssh:
 	docker exec -it api /bin/bash
 
-db-ssh:
-	docker exec -it db /bin/bash
-
-PHONY: prepare build init deps dkb dkr launch api-log rmc rmi clear
+PHONY: prepare build tests dkb dkr launch api-log rmc rmi clear

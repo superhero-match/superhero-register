@@ -11,33 +11,50 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package model
 
+import (
+	"fmt"
+
+	validator "gopkg.in/joeybloggs/go-validate-yourself.v2"
+)
+
 type Superhero struct {
-	ID                    string  `json:"id"`
-	Email                 string  `json:"email"`
-	Name                  string  `json:"name"`
-	SuperheroName         string  `json:"superheroName"`
-	MainProfilePicURL     string  `json:"mainProfilePicUrl"`
-	Gender                int     `json:"gender"`
-	LookingForGender      int     `json:"lookingForGender"`
-	Age                   int     `json:"age"`
-	LookingForAgeMin      int     `json:"lookingForAgeMin"`
-	LookingForAgeMax      int     `json:"lookingForAgeMax"`
-	LookingForDistanceMax int     `json:"lookingForDistanceMax"`
-	DistanceUnit          string  `json:"distanceUnit"`
-	Lat                   float64 `json:"lat"`
-	Lon                   float64 `json:"lon"`
-	Birthday              string  `json:"birthday"`
-	Country               string  `json:"country"`
-	City                  string  `json:"city"`
-	SuperPower            string  `json:"superpower"`
-	AccountType           string  `json:"accountType"`
-	FirebaseToken         string  `json:"firebaseToken"`
-	IsDeleted             bool    `json:"isDeleted"`
-	DeletedAt             string  `json:"deletedAt"`
-	IsBlocked             bool    `json:"isBlocked"`
-	BlockedAt             string  `json:"blockedAt"`
-	UpdatedAt             string  `json:"updatedAt"`
-	CreatedAt             string  `json:"createdAt"`
+	ID                    string  `json:"id" validate:"required"`
+	Email                 string  `json:"email" validate:"required"`
+	Name                  string  `json:"name" validate:"required"`
+	SuperheroName         string  `json:"superheroName" validate:"required"`
+	MainProfilePicURL     string  `json:"mainProfilePicUrl" validate:"required"`
+	Gender                int     `json:"gender" validate:"required"`
+	LookingForGender      int     `json:"lookingForGender" validate:"required"`
+	Age                   int     `json:"age" validate:"required"`
+	LookingForAgeMin      int     `json:"lookingForAgeMin" validate:"required"`
+	LookingForAgeMax      int     `json:"lookingForAgeMax" validate:"required"`
+	LookingForDistanceMax int     `json:"lookingForDistanceMax" validate:"required"`
+	DistanceUnit          string  `json:"distanceUnit" validate:"required"`
+	Lat                   float64 `json:"lat" validate:"required"`
+	Lon                   float64 `json:"lon" validate:"required"`
+	Birthday              string  `json:"birthday" validate:"required"`
+	Country               string  `json:"country" validate:"required"`
+	City                  string  `json:"city" validate:"required"`
+	SuperPower            string  `json:"superpower" validate:"required"`
+	AccountType           string  `json:"accountType" validate:"required"`
+	FirebaseToken         string  `json:"firebaseToken" validate:"required"`
+	IsDeleted             bool    `json:"isDeleted" validate:"omitempty"`
+	DeletedAt             string  `json:"deletedAt" validate:"omitempty"`
+	IsBlocked             bool    `json:"isBlocked" validate:"omitempty"`
+	BlockedAt             string  `json:"blockedAt" validate:"omitempty"`
+	UpdatedAt             string  `json:"updatedAt" validate:"omitempty"`
+	CreatedAt             string  `json:"createdAt" validate:"omitempty"`
+}
+
+// Validate validates that all fields are present.
+func (s Superhero) Validate() error {
+	errs := validator.ValidateStruct(s)
+	if errs != nil {
+		return fmt.Errorf("error validating Superhero: %v", errs.Errors)
+	}
+
+	return nil
 }

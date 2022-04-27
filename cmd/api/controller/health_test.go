@@ -15,49 +15,51 @@
 package controller
 
 import (
-	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
+	"net/http"
+	"net/http/httptest"
+	"testing"
 
-	"github.com/superhero-match/superhero-register/cmd/api/service"
-	"github.com/superhero-match/superhero-register/internal/config"
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/zap"
 )
 
-// Controller holds the controller data.
-type Controller struct {
-	Service    service.Service
-	Logger     *zap.Logger
-	TimeFormat string
+func MockGet(c *gin.Context) {
+	c.Request.Method = "GET"
+	c.Request.Header.Set("Content-Type", "application/json")
 }
 
-// New returns new controller.
-func New(cfg *config.Config) (ctrl *Controller, err error) {
-	srv, err := service.New(cfg)
-	if err != nil {
-		return nil, err
+func TestController_Health(t *testing.T) {
+	mockProd := mockProducer{
+		registerSuperhero: mockPublishRegisterSuperhero,
+	}
+
+	mService := &mockService{
+		mProducer: mockProd,
 	}
 
 	logger, err := zap.NewProduction()
 	if err != nil {
-		return nil, err
+		t.Fatal(err)
 	}
 
 	defer logger.Sync()
 
-	return &Controller{
-		Service:    srv,
+	mockController := &Controller{
+		Service:    mService,
 		Logger:     logger,
-		TimeFormat: cfg.App.TimeFormat,
-	}, nil
-}
+		TimeFormat: "2006-01-02T15:04:05",
+	}
 
-// RegisterRoutes registers all the superhero register API routes.
-func (ctl *Controller) RegisterRoutes() *gin.Engine {
-	router := gin.Default()
+	w := httptest.NewRecorder()
+	ctx, _ := gin.CreateTestContext(w)
 
-	sr := router.Group("/api/v1/superhero_register")
+	ctx.Request = &http.Request{
+		Header: make(http.Header),
+	}
 
-	sr.POST("/register", ctl.RegisterSuperhero)
-	sr.GET("/health", ctl.Health)
+	MockGet(ctx)
 
-	return router
+	mockController.Health(ctx)
+	assert.EqualValues(t, http.StatusOK, w.Code)
 }

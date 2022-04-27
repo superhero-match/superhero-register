@@ -4,36 +4,36 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e71bb233-31c5-48f3-b6b5-04cb59cf52a3" name="Default Changelist" comment="">
+    <list default="true" id="98a92972-5aa4-48df-9f6e-1707fc3c8701" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/superhero-register.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/superhero-register.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/controller/auth_middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/auth_middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/controller/auth_middleware.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/controller/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/controller/register.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/model/superhero.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/service/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/cache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/api/service/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/cache.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/jwt.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/service/producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/producer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/health/controller/controller.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/health/controller/health.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/health/controller/shutdown.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/health/main.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/cache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/cache/fetch_auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/fetch_auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/cache/model/access_details.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/cache/model/access_details.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/cache.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/fetch_auth.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/cache/model/access_details.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/config/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/cache.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/health.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/producer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/health/client.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/health/shutdown.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/producer/close.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/producer/close.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/jwt.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/producer/model/superhero.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/producer/model/superhero.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/producer/producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/producer/producer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/producer/store.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/producer/store.go" afterDir="false" />
@@ -54,82 +54,105 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GoLibraries">
-    <option name="urls">
-      <list>
-        <option value="file://$PROJECT_DIR$/../../../.." />
-      </list>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="1SSs0GED74TaVYbLVt1pRVrxjeu" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectId" id="28NatWtqz7WoKx8252AUZEYs95U" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="configurable..is.expanded" value="false" />
-    <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
-    <property name="go.format.on.save.advertiser.fired" value="true" />
-    <property name="go.formatter.settings.were.checked" value="true" />
-    <property name="go.import.settings.migrated" value="true" />
-    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
-    <property name="go.sdk.automatically.set" value="true" />
-    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
-  </component>
-  <component name="RunManager" selected="Go Build.go build github.com/superhero-match/superhero-register/cmd/api">
-    <configuration name="go build github.com/superhero-match/superhero-register/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/nikolajuskarpovas/go/src/github.com/superhero-match/superhero-register",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RunManager" selected="Go Test.TestController_Health in github.com/superhero-match/superhero-register/cmd/api/controller">
+    <configuration name="TestController_Health in github.com/superhero-match/superhero-register/cmd/api/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="superhero-register" />
-      <working_directory value="$PROJECT_DIR$/" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/controller" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/superhero-match/superhero-register/cmd/api" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
+      <package value="github.com/superhero-match/superhero-register/cmd/api/controller" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestController_Health\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build github.com/superhero-match/superhero-register/cmd/health" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestController_RegisterSuperhero in github.com/superhero-match/superhero-register/cmd/api/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="superhero-register" />
-      <working_directory value="$PROJECT_DIR$/" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/controller" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/superhero-match/superhero-register/cmd/health" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/cmd/health/main.go" />
+      <package value="github.com/superhero-match/superhero-register/cmd/api/controller" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestController_RegisterSuperhero\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build github.com/superhero-register/cmd/api" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestController_RegisterSuperheroInvalidRequest in github.com/superhero-match/superhero-register/cmd/api/controller" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="superhero-register" />
-      <working_directory value="$PROJECT_DIR$/" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/controller" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/superhero-register/cmd/api" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/cmd/api/main.go" />
+      <package value="github.com/superhero-match/superhero-register/cmd/api/controller" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestController_RegisterSuperheroInvalidRequest\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestNew in github.com/superhero-match/superhero-register/internal/config" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="superhero-register" />
+      <working_directory value="$PROJECT_DIR$/internal/config" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/superhero-match/superhero-register/internal/config" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestNew\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestService_StoreSuperhero in github.com/superhero-match/superhero-register/cmd/api/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="superhero-register" />
+      <working_directory value="$PROJECT_DIR$/cmd/api/service" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/superhero-match/superhero-register/cmd/api/service" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestService_StoreSuperhero\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build github.com/superhero-match/superhero-register/cmd/api" />
-        <item itemvalue="Go Build.go build github.com/superhero-match/superhero-register/cmd/health" />
-        <item itemvalue="Go Build.go build github.com/superhero-register/cmd/api" />
+        <item itemvalue="Go Test.TestController_Health in github.com/superhero-match/superhero-register/cmd/api/controller" />
+        <item itemvalue="Go Test.TestController_RegisterSuperhero in github.com/superhero-match/superhero-register/cmd/api/controller" />
+        <item itemvalue="Go Test.TestController_RegisterSuperheroInvalidRequest in github.com/superhero-match/superhero-register/cmd/api/controller" />
+        <item itemvalue="Go Test.TestService_StoreSuperhero in github.com/superhero-match/superhero-register/cmd/api/service" />
+        <item itemvalue="Go Test.TestNew in github.com/superhero-match/superhero-register/internal/config" />
       </list>
     </recent_temporary>
   </component>
@@ -147,5 +170,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/superhero_register$TestController_RegisterSuperhero_in_github_com_superhero_match_superhero_register_cmd_api_controller.out" NAME="TestController_RegisterSuperhero in github.com/superhero-match/superhero-register/cmd/api/controller Coverage Results" MODIFIED="1651062306413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_register$TestProducer_StoreSuperhero_in_github_com_superhero_match_superhero_register_internal_producer.out" NAME="TestProducer_StoreSuperhero in github.com/superhero-match/superhero-register/internal/producer Coverage Results" MODIFIED="1651060898873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_register$TestController_RegisterSuperheroInvalidRequest_in_github_com_superhero_match_superhero_register_cmd_api_controller.out" NAME="TestController_RegisterSuperheroInvalidRequest in github.com/superhero-match/superhero-register/cmd/api/controller Coverage Results" MODIFIED="1651062296509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_register$TestController_Health_in_github_com_superhero_match_superhero_register_cmd_api_controller.out" NAME="TestController_Health in github.com/superhero-match/superhero-register/cmd/api/controller Coverage Results" MODIFIED="1651062396077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_register$TestService_StoreSuperhero_in_github_com_superhero_match_superhero_register_cmd_api_service.out" NAME="TestService_StoreSuperhero in github.com/superhero-match/superhero-register/cmd/api/service Coverage Results" MODIFIED="1651061452861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_register$TestNewConfig_in_github_com_superhero_match_superhero_register_internal_config.out" NAME="TestNewConfig in github.com/superhero-match/superhero-register/internal/config Coverage Results" MODIFIED="1651061071007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/superhero_register$TestNew_in_github_com_superhero_match_superhero_register_internal_config.out" NAME="TestNew in github.com/superhero-match/superhero-register/internal/config Coverage Results" MODIFIED="1651061165527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

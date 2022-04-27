@@ -11,29 +11,37 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 package producer
 
 import (
 	"bytes"
 	"context"
 	"encoding/json"
-
 	"github.com/segmentio/kafka-go"
-
 	"github.com/superhero-match/superhero-register/internal/producer/model"
 )
 
 // StoreSuperhero publishes new Superhero on Kafka topic for it to be
 // consumed by record keeper and stored in DB and Elasticsearch.
 func (p *producer) StoreSuperhero(s model.Superhero) error {
-	var sb bytes.Buffer
+	return p.registerSuperhero(p.Producer, s)
+}
 
-	err := json.NewEncoder(&sb).Encode(s)
+func publishRegisterSuperhero(producer *kafka.Writer, s model.Superhero) error {
+	err := s.Validate()
 	if err != nil {
 		return err
 	}
 
-	err = p.Producer.WriteMessages(
+	var sb bytes.Buffer
+
+	err = json.NewEncoder(&sb).Encode(s)
+	if err != nil {
+		return err
+	}
+
+	err = producer.WriteMessages(
 		context.Background(),
 		kafka.Message{
 			Value: sb.Bytes(),

@@ -19,12 +19,12 @@ import (
 )
 
 func main() {
-	cfg, err := config.NewConfig()
+	cfg, err := config.New()
 	if err != nil {
 		panic(err)
 	}
 
-	ctrl, err := controller.NewController(cfg)
+	ctrl, err := controller.New(cfg)
 	if err != nil {
 		panic(err)
 	}

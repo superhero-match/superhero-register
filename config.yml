@@ -3,19 +3,7 @@ app:
   time_format: '2006-01-02T15:04:05'
 
 producer:
-  brokers: '192.168.1.229:9092'
+  brokers: 'localhost:9092'
   topic: 'store.municipality.superhero'
   batch_size: 1
   batch_timeout: 10
-
-jwt:
-  access_token_secret: 'access_token_secret'
-
-cache:
-  address: '192.168.1.229'
-  port: ':6379'
-  password: 'Awesome85**'
-  db: 0
-  pool_size: 25
-  minimum_idle_connections: 10
-  maximum_retries: 1
